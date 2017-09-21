@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="37px" viewBox="0 0 77 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Brand</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="77" height="37"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(0.000000, -7.000000)">
+            <g id="Brand" transform="translate(0.000000, 7.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g mask="url(#mask-2)" stroke="#CEECEF">
+                    <g transform="translate(-5.000000, 1.000000)">
+                        <polyline id="Path-3-Copy" points="4 18 44.5351562 18 61.2402344 18 71.9272461 18"></polyline>
+                        <polyline id="Path-3-Copy-2" points="4 14.6367188 44.1933594 14.6367188 58.8085937 7 74.6088867 7"></polyline>
+                        <circle id="Oval-Copy" cx="75" cy="18" r="3"></circle>
+                        <circle id="Oval-Copy-2" cx="78" cy="7" r="3"></circle>
+                        <circle id="Oval-Copy-3" cx="72" cy="28" r="3"></circle>
+                        <polyline id="Path-3-Copy-3" points="0 21 42.9179688 21 60.0683594 27.8144531 69.1386719 27.8144531"></polyline>
+                        <path d="M54.0807168,4.56988516 C50.9699821,1.73119507 46.8312052,0 42.2880859,0 C34.1708984,0 27.699707,5.32177734 26,12.7822266 M26,23 C28.0766602,30.4233398 35.7559657,35.2197266 42.6508789,35.2197266 C48.2626953,35.2197266 51.7451172,33.2324219 55.1611328,29.1098633" id="Oval-3-Copy"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cryptocurreny Encyclopedia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="popup" data-popup="about">
+        <div class="popup__close popup__backdrop"></div>
+        <div class="popup__main">
+            <div class="popup__header">
+                <h2 class="popup__title">About</h2>
+            </div>
+            <div class="popup__content">
+                <p class="popup__text">The cryptocurrency encyclopedia is a project devoted to making a new and exciting feild more accessable to the public. We work hard to profile all established and developing cryptocurency projects and include links and recources for learning more.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" data-popup="contact">
+        <div class="popup__close popup__backdrop"></div>
+        <div class="popup__main ">
+            <div class="popup__header">
+                <h2 class="popup__title">Contact</h2>
+            </div>
+            <div class="popup__content popup__content--nopadding">
+                <div class="popup__content-group">
+                    <p class="popup__text popup__text--center popup__text--big">Something interesting we should know about?</p>
+                </div>
+                <form class="contact">
+                    <div class="contact__group">
+                        <div class="contact__input-group">
+                            <label class="contact__label">Name</label>
+                            <input type="text" class="contact__input">
+                        </div>
+                        <div class="contact__input-group">
+                            <label class="contact__label">Email</label>
+                            <input type="email" class="contact__input">
+                        </div>
+                    </div>
+                    <div class="contact__group">
+                        <div class="contact__input-group">
+                            <label class="contact__label">Message</label>
+                            <textarea class="contact__textarea"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="popup__content-group">
+                    <button class="cta">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="container-fluid header">
+        <div class="row">
+            <div class="col-xs-12 header__content">
+                <div class="header__main">
+                    <img src="images/logo.svg" alt="Logo" class="hidden-xs header__logo">
+                    <img src="images/arrow.svg" alt="Arrow" class="visible-xs header__arrow">
+                    <h1 class="header__title">The Cryptocurrency Encyclopedia</h1>
+                    <img src="images/menu.svg" alt="Menu button" class="visible-xs visible-sm header__btn">
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="header__menu-item">
+                            <a href="#" class="popup__open header__menu-link" data-popup="about">About</a>
+                        </li>
+                        <li class="header__menu-item">
+                            <a href="#" class="popup__open header__menu-link" data-popup="contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="wrapper">
+        <aside class="wrapper__sidebar">
+            <div class="tokens">
+                <h3 class="visible-xs tokens__title">Select a Token</h3>
+                <ul class="tokens__list">
+                    <li class="tokens__item">
+                        <a href="#" class="tokens__item-link">
+                            <img src="images/neo.png" alt="Neo" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">NEO</h4>
+                        </a>
+                    </li>
+                    <li class="tokens__item">
+                        <a href="#" class="tokens__item-link">
+                            <img src="images/bitcoin-cash.png" alt="Bitcoin Cash" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">Bitcoin Cash</h4>
+                        </a>
+                    </li>
+                    <li class="tokens__item">
+                        <a href="#" class="tokens__item-link tokens__item-link--active">
+                            <img src="images/ripple.png" alt="Ripple" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">Ripple</h4>
+                        </a>
+                    </li>
+                    <li class="tokens__item">
+                        <a href="#" class="tokens__item-link">
+                            <img src="images/qtum.png" alt="Qtum" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">Qtum</h4>
+                        </a>
+                    </li>
+                    <li class="tokens__item">
+                        <a href="#" class="tokens__item-link">
+                            <img src="images/bitcoin.png" alt="Bitcoin" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">Bitcoin</h4>
+                        </a>
+                    </li>
+                    <li class="tokens__item">
+                        <a href="#" class="tokens__item-link">
+                            <img src="images/nem.png" alt="NEM" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">NEM</h4>
+                        </a>
+                    </li>
+                    <li class="tokens__item">
+                        <a href="#" class="tokens__item-link">
+                            <img src="images/dash.png" alt="Dash" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">Dash</h4>
+                        </a>
+                    </li>
+                    <li class="tokens__item">
+                        <a href="#" class="tokens__item-link">
+                            <img src="images/ethereum.png" alt="Ethereum" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">Ethereum</h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <div class="wrapper__main">
+            <div class="article">
+                <div class="article__main">
+                    <div class="banner">
+                        <h1 class="text--title banner__title">Ripple: A Different Infrastructure</h1>
+                        <div class="banner__slider">
+                            <img src="images/banner.jpg" alt="Banner image" class="banner__slider-item">
+                            <img src="images/banner.jpg" alt="Banner image" class="banner__slider-item">
+                            <img src="images/banner.jpg" alt="Banner image" class="banner__slider-item">
+                            <img src="images/banner.jpg" alt="Banner image" class="banner__slider-item">
+                        </div>
+                        <p class="text--paragraph banner__text">Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend lacus, vitae ullamcorper metus. Sed sollicitudin ipsum quis nunc sollicitudin ultrices. Donec euismod scelerisque ligula. Maecenas eu varius risus, eu aliquet arcu. Curabitur fermentum suscipit est, tincidunt mattis lorem luctus id.</p>
+                    </div>
+                </div>
+                <aside class="article__sidebar">
+                    <h2 class="text--title article__title">Additional Content</h2>
+                    <p class="text--paragraph article__text">Here content will be placed that can be arranged as you like from the CMS.</p>
+                    <img src="images/video-player.jpg" alt="Video" class="article__img article__video">
+                    <p class="text--paragraph">This team will be speaking next at: - Houston, TX<br> - Los Angeles, CA<br> - Paris, TN<br> - Boston, MA</p>
+                    <img src="images/people.jpg" alt="Image" class="article__img article__img--small">
+                    <div class="article__social">
+                        <div class="article__social-item">
+                            <div class="article__social-item__icon-wrapper" style="background-color: #000000;">
+                                <i class="fa fa-github article__social-item__icon"></i>
+                            </div>
+                            <a href="#" class="article__social-item__link">github.com/ripple</a>
+                        </div>
+                        <div class="article__social-item">
+                            <div class="article__social-item__icon-wrapper" style="background-color: #598DCA;">
+                                <i class="fa fa-twitter article__social-item__icon"></i>
+                            </div>
+                            <a href="#" class="article__social-item__link">@ripple_crypto</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

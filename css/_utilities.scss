@@ -1,0 +1,53 @@
+/*------------- UTILITY CLASSES -------------*/
+
+@mixin atSmall {
+    @media screen and (min-width: 768px) {
+        @content
+    }
+}
+
+@mixin atMedium {
+    @media screen and (min-width: 992px) {
+        @content
+    }
+}
+
+@mixin atLarge {
+    @media screen and (min-width: 1200px) {
+        @content
+    }
+}
+
+@mixin atExtralarge {
+    @media screen and (min-width: 1400px) {
+        @content
+    }
+}
+
+@mixin linkStates($color, $decoration) {
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+        color: $color;
+        text-decoration: $decoration;
+    }
+}
+
+.cta {
+    background-color: $brand;
+    font-family: $subtitle;
+    font-weight: 400;
+    color: $brand-alt;
+    font-size: 2rem;
+    line-height: 2.4167rem;
+    box-shadow: 0 2px 2px 0 #28434E;
+    border-radius: 4px;
+    padding: 6px 34px;
+    display: block;
+    margin: 0 auto;
+    @include atSmall {
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
+    }
+}

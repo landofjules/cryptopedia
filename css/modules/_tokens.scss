@@ -1,0 +1,66 @@
+.tokens {
+    margin-bottom: 2rem;
+    @include atSmall {
+        margin-bottom: 0;
+    }
+    &__title {
+        text-align: center;
+        font-family: $subtitle;
+        color: $brand-light;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        margin: 1.8333rem auto;
+        @include atSmall {
+            font-size: 1.125rem;
+            line-height: 1.3125rem;
+        }
+    }
+    &__item {
+        &-link {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1.25rem 1rem;
+            transition: all .3s;
+            @include linkStates(inherit, none);
+            @include atSmall {
+                padding: 0.9375rem 1rem;
+                width: 100%;
+            }
+            &--active {
+                background-color: $brand !important;
+                color: $white;
+                .tokens__item-title {
+                    color: $white;
+                }
+            }
+            &:hover {
+                background-color: #EEF7FA;
+            }
+        }
+        &+& {
+            border-top: 1px solid $border;
+            @include atSmall {
+                border-top: 0;
+            }
+        }
+        &-icon {
+            margin-right: 1.333rem;
+            @include atSmall {
+                margin-right: 0.625rem;
+                width: 16px;
+            }
+        }
+        &-title {
+            font-family: $subtitle;
+            font-weight: 600;
+            color: #3D4B58;
+            font-size: 1.5rem;
+            line-height: 1.75rem;
+            @include atSmall {
+                font-size: 0.875rem;
+                line-height: 1.0625rem;
+            }
+        }
+    }
+}

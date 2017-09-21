@@ -1,0 +1,155 @@
+.header {
+    padding: 0;
+    position: relative;
+    z-index: 999999999;
+    &__content {
+        @include atMedium {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+        }
+    }
+    &__main {
+        background-color: $brand;
+        padding: 0.667rem 0;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        @include atMedium {
+            width: 70%;
+        }
+        &:after {
+            @include atMedium {
+                content: "";
+                position: absolute;
+                z-index: 9999;
+                top: 0;
+                right: 0;
+                transform: translateX(100%);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 63.05px 0 0 20px;
+                border-color: transparent transparent transparent #375c6b;
+            }
+            @include atLarge {
+                border-width: 67.25px 0 0 20px;
+            }
+        }
+        @include atSmall {
+            padding: 0.5rem 0;
+        }
+    }
+    &__logo {
+        margin-right: 1rem;
+        width: 6.667rem;
+        height: auto;
+        cursor: pointer;
+        @include atSmall {
+            margin-right: 0.75rem;
+        }
+    }
+    &__arrow {
+        width: 1.8333rem;
+        height: auto;
+        margin: 0 1.667rem;
+        cursor: pointer;
+    }
+    &__title {
+        font-family: $title;
+        font-weight: 300;
+        font-size: 1.833rem;
+        line-height: 2.1667rem;
+        margin-right: 5rem;
+        color: $logo;
+        @media screen and (max-width: 340px) {
+            font-size: 1.333rem;
+            line-height: 1.5rem;
+        }
+        @include atSmall {
+            font-size: 30px;
+            line-height: 36px;
+        }
+    }
+    &__nav {
+        position: relative;
+        @include atMedium {
+            width: 30%;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $brand-lighter;
+            padding-left: 20px;
+        }
+    }
+    &__btn {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 2.5rem;
+        transform: translateY(-50%);
+    }
+    &__menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+        width: 50%;
+        display: none;
+        @include atSmall {
+            max-width: 200px;
+        }
+        @include atMedium {
+            display: flex !important;
+            align-items: center;
+            justify-content: flex-end;
+            box-shadow: none;
+            max-width: none;
+            width: auto;
+            position: static;
+        }
+        &-item {
+            & + & {
+                border-top: 2px solid $border;
+                @include atMedium {
+                    margin-left: 0.625rem;
+                    border: 0;
+                }
+            }
+        }
+        &-link {
+            font-family: $title;
+            font-weight: 300;
+            font-size: 2rem;
+            line-height: 2.4167rem;
+            display: inline-block;
+            padding: 0.667rem;
+            width: 100%;
+            background-color: $white;
+            transition: all .3s;
+            @include linkStates($brand, none);
+            @include atSmall {
+                font-size: 1.5rem;
+                line-height: 1.8125rem;
+                padding: 0.5rem;
+            }
+            @include atMedium {
+                font-size: 18px;
+                line-height: 21px;
+                font-weight: 400;
+                background-color: transparent;
+            }
+            @include atLarge {
+                padding: 0.75rem 1rem;
+            }
+            &:hover {
+                @include atMedium {
+                    background-color: $brand-alt-light !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.text {
+    &--title {
+        font-family: $title;
+        font-weight: 300;
+        color: $accent;
+        font-size: 2rem;
+        line-height: 2.4167rem;
+        margin-bottom: 1rem;
+        @include atSmall {
+            font-size: 1.875rem;
+            line-height: 2.3125rem;
+        }
+        @include atLarge {
+            font-size: 1.4rem;
+            line-height: 1.8125rem;
+        }
+    }
+    &--paragraph {
+        font-family: $main;
+        font-weight: 400;
+        color: $black;
+        font-size: 1.167rem;
+        line-height: 1.41667rem;
+        @include atSmall {
+            font-size: 0.875rem;
+            line-height: 1.0625rem;
+        }
+    }
+}

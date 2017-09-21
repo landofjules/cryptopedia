@@ -1,0 +1,98 @@
+.article {
+    @include atMedium {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    &__main {
+        padding: 0;
+        @include atSmall {
+            padding: 0 1.25rem;
+        }
+        @include atMedium {
+            padding: 0 2.8125rem;
+            width: 65%;
+            //flex-grow: 1;
+        }
+    }
+    &__sidebar {
+        margin-top: 2rem;
+        padding: 0 1.667rem 1.667rem 1.667rem;
+        @include atSmall {
+            padding: 0 1.25rem;
+        }
+        @include atMedium {
+            margin-top: 0;
+            width: 35%;
+            //max-width: 253px;
+            padding: 0 1rem 0 0;
+        }
+    }
+    &__title {
+        margin-bottom: 1rem;
+    }
+    &__img {
+        width: 100%;
+        height: auto;
+        margin: 1rem auto;
+        @include atSmall {
+            width: 70%;
+            max-width: 340px;
+        }
+        @include atMedium {
+            width: 100%;
+            max-width: none;
+        }
+        &--small {
+            width: 70%;
+        }
+    }
+    &__video {
+        margin: 1rem 0;
+    }
+    &__social {
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            & + & {
+                margin-top: 0.6667rem;
+                @include atSmall {
+                    margin-top: 0.5rem;
+                }
+            }
+            &__icon-wrapper {
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.25rem;
+                height: 2.25rem;
+                margin-right: 0.5rem;
+                @include atSmall {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+            &__icon {
+                font-size: 1.25rem;
+                color: $white;
+                @include atSmall {
+                    font-size: 1rem;
+                }
+            }
+            &__link {
+                font-family: $main;
+                font-weight: 500;
+                font-size: 1rem;
+                line-height: 1.1667rem;
+                @include linkStates($gray, none);
+                @include atSmall {
+                    font-size: 0.75rem;
+                    line-height: 0.875rem;
+                }
+            }
+        }
+    }
+}

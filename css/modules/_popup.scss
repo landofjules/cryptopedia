@@ -1,0 +1,110 @@
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999;
+    pointer-events: none;
+    @include atSmall {
+        font-size: 0.75rem;
+    }
+    &--active {
+        pointer-events: all;
+        .popup {
+            &__backdrop {
+                opacity: 1;
+            }
+            &__main {
+                transform: translate(-50%, -70%);
+                opacity: 1;
+            }
+        }
+    }
+    &__backdrop {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: all .3s;
+    }
+    &__main {
+        width: 90%;
+        max-width: 382px;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -80%);
+        opacity: 0;
+        max-height: 90vh;
+        min-height: 410px;
+        box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.50);
+        transition: all .3s;
+        border-radius: 1rem;
+        background-color: $white;
+    }
+    &__header {
+        padding: 0.667rem;
+        text-align: center;
+        background-color: $brand;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+        @include atSmall {
+            padding: 0.5rem;
+        }
+    }
+    &__title {
+        font-family: $main;
+        font-weight: 300;
+        color: $brand-alt;
+        font-size: 3rem;
+        line-height: 3.5833rem;
+        @include atSmall {
+            font-size: 2.25rem;
+            line-height: 2.6875rem;
+        }
+    }
+    &__content {
+        padding: 1.667rem;
+        background-color: $white;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        @include atSmall {
+            padding: 1.25rem;
+        }
+        &--nopadding {
+            padding: 0;
+        }
+        &-group {
+            padding: 1.667rem;
+            @include atSmall {
+                padding: 1.25rem;
+            }
+        }
+    }
+    &__text {
+        font-family: $main;
+        font-weight: 400;
+        font-size: 1.1667rem;
+        line-height: 1.41667rem;
+        color: $black;
+        @include atSmall {
+            font-size: 0.875rem;
+            line-height: 1.0625rem;
+        }
+        &--center {
+            text-align: center;
+        }
+        &--big {
+            font-size: 1.333rem;
+            line-height: 1.5833rem;
+            @include atSmall {
+                font-size: 1rem;
+                line-height: 1.1875rem;
+            }
+        }
+    }
+}
