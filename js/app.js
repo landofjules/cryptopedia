@@ -1,3 +1,37 @@
+var Prismic = require('prismic-javascript');
+var apiEndpoint = "https://cryptopedia.cdn.prismic.io/api/v2";
+
+var app = angular.module("cryptopedia", []);
+
+app.config(function() {
+
+});
+
+// sidebar
+app.controller('sidebarController', function($scope) {
+
+    $scope.articles = [];
+
+    // load list of articles
+    Prismic.getApi(apiEndpoint, {})
+        .then(function(api) {
+            return api.query("");
+        }).then(function(response) {
+            console.log(response);
+            $scope.articles = response.results;
+            $scope.$apply();
+        }, function(err) {
+            console.log("API error: ", err);
+        });
+
+});
+
+// article
+/*app.controller('articleController', function($scope) {
+
+});*/
+
+
 $(document).ready(function () {
 
     var $menu = $(".header__menu");

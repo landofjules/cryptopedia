@@ -5,13 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cryptocurreny Encyclopedia</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.css" />
-    <link rel="stylesheet" href="css/main.css">
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="./node_modules/prismic-javascript/dist/prismic-javascript.min.js"></script>
+    <script type="text/javascript" src="./node_modules/prismic-dom/dist/prismic-dom.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js"></script>
+    <script src="js/bundle.js"></script>
 </head>
 
-<body>
+<body ng-app="cryptopedia">
 
     <div class="popup" data-popup="about">
         <div class="popup__close popup__backdrop"></div>
@@ -84,61 +91,21 @@
     </header>
 
     <section class="wrapper">
-        <aside class="wrapper__sidebar">
+
+        <aside class="wrapper__sidebar" ng-controller="sidebarController">
             <div class="tokens">
                 <h3 class="visible-xs tokens__title">Select a Token</h3>
                 <ul class="tokens__list">
-                    <li class="tokens__item">
+                    <li class="tokens__item" ng-repeat="article in articles">
                         <a href="#" class="tokens__item-link">
-                            <img src="images/neo.png" alt="Neo" class="tokens__item-icon">
-                            <h4 class="tokens__item-title">NEO</h4>
-                        </a>
-                    </li>
-                    <li class="tokens__item">
-                        <a href="#" class="tokens__item-link">
-                            <img src="images/bitcoin-cash.png" alt="Bitcoin Cash" class="tokens__item-icon">
-                            <h4 class="tokens__item-title">Bitcoin Cash</h4>
-                        </a>
-                    </li>
-                    <li class="tokens__item">
-                        <a href="#" class="tokens__item-link tokens__item-link--active">
-                            <img src="images/ripple.png" alt="Ripple" class="tokens__item-icon">
-                            <h4 class="tokens__item-title">Ripple</h4>
-                        </a>
-                    </li>
-                    <li class="tokens__item">
-                        <a href="#" class="tokens__item-link">
-                            <img src="images/qtum.png" alt="Qtum" class="tokens__item-icon">
-                            <h4 class="tokens__item-title">Qtum</h4>
-                        </a>
-                    </li>
-                    <li class="tokens__item">
-                        <a href="#" class="tokens__item-link">
-                            <img src="images/bitcoin.png" alt="Bitcoin" class="tokens__item-icon">
-                            <h4 class="tokens__item-title">Bitcoin</h4>
-                        </a>
-                    </li>
-                    <li class="tokens__item">
-                        <a href="#" class="tokens__item-link">
-                            <img src="images/nem.png" alt="NEM" class="tokens__item-icon">
-                            <h4 class="tokens__item-title">NEM</h4>
-                        </a>
-                    </li>
-                    <li class="tokens__item">
-                        <a href="#" class="tokens__item-link">
-                            <img src="images/dash.png" alt="Dash" class="tokens__item-icon">
-                            <h4 class="tokens__item-title">Dash</h4>
-                        </a>
-                    </li>
-                    <li class="tokens__item">
-                        <a href="#" class="tokens__item-link">
-                            <img src="images/ethereum.png" alt="Ethereum" class="tokens__item-icon">
-                            <h4 class="tokens__item-title">Ethereum</h4>
+                            <img ng-src="{{ article.data.token_image.url }}" alt="{{ article.data.token_image.alt }}" class="tokens__item-icon">
+                            <h4 class="tokens__item-title">{{ article.data.name }}</h4>
                         </a>
                     </li>
                 </ul>
             </div>
         </aside>
+
         <div class="wrapper__main">
             <div class="article">
                 <div class="article__main">
@@ -176,11 +143,8 @@
                 </aside>
             </div>
         </div>
-    </section>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js"></script>
-    <script src="js/app.js"></script>
+    </section>
 
 </body>
 

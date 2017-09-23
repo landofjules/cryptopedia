@@ -1,0 +1,8 @@
+{
+  "name": "Cryptopedia",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "1.6.6",
+    "angular-animate": "^1.6.6"
+  }
+}
