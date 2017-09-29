@@ -27,7 +27,7 @@
     </script>
 </head>
 
-<body ng-app="cryptopedia">
+<body style="height: 100vh;" ng-app="cryptopedia">
 
     <div class="popup" data-popup="about" ng-controller="aboutController">
         <div class="popup__close popup__backdrop"></div>
@@ -74,12 +74,12 @@
         </div>
     </div>
 
-    <header class="container-fluid header">
+    <header class="container-fluid header" ng-controller="headerController">
         <div class="row">
             <div class="col-xs-12 header__content">
                 <div class="header__main">
                     <img src="images/logo.svg" alt="Logo" class="hidden-xs header__logo">
-                    <img src="images/arrow.svg" alt="Arrow" class="visible-xs header__arrow">
+                    <img src="images/arrow.svg" alt="Arrow" class="header__arrow" ng-click="backArrowClicked()">
                     <h1 class="header__title">The Cryptocurrency Encyclopedia</h1>
                     <img src="images/menu.svg" alt="Menu button" class="visible-xs visible-sm header__btn">
                 </div>
@@ -115,7 +115,7 @@
 
         <div class="wrapper__main" ng-controller="articleController">
             <div class="article">
-                <div class="article__main" ng-cloak>
+                <div class="article__main col-lg-8 col-md-12" ng-cloak>
                     <div class="banner">
                         <h1 class="text--title banner__title">{{ bannerTitle }}</h1>
 
@@ -126,7 +126,7 @@
                         <p class="text--paragraph banner__text">{{ bannerText }}</p>
                     </div>
                 </div>
-                <aside class="article__sidebar">
+                <aside class="article__sidebar col-lg-4 col-md-12">
                     <div class="article__social">
                         <div class="article__social-item" ng-repeat="x in socialLinks">
                             <div class="article__social-item__icon-wrapper" style="background-color: #000000;">

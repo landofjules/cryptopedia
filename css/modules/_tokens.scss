@@ -16,6 +16,17 @@
         }
     }
     &__item {
+        cursor: pointer;
+        &:hover {
+            background-color: #EEF7FA;
+        }
+        &-active {
+            background-color: $brand !important;
+            color: $white;
+            .tokens__item-title {
+                color: $white;
+            }
+        }
         &-link {
             display: flex;
             align-items: center;
@@ -26,17 +37,7 @@
             @include atSmall {
                 padding: 0.9375rem 1rem;
                 width: 100%;
-            }
-            &--active {
-                background-color: $brand !important;
-                color: $white;
-                .tokens__item-title {
-                    color: $white;
-                }
-            }
-            &:hover {
-                background-color: #EEF7FA;
-            }
+            } 
         }
         &+& {
             border-top: 1px solid $border;

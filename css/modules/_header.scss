@@ -46,7 +46,6 @@
         margin-right: 1rem;
         width: 6.667rem;
         height: auto;
-        cursor: pointer;
         @include atSmall {
             margin-right: 0.75rem;
         }
@@ -56,6 +55,11 @@
         height: auto;
         margin: 0 1.667rem;
         cursor: pointer;
+        display: block;
+        visibility: hidden;
+        @media screen and (min-width: 426px) {
+            visibility: hidden !important;
+        }
     }
     &__title {
         font-family: $title;
@@ -112,6 +116,7 @@
             position: static;
         }
         &-item {
+            cursor: pointer;
             & + & {
                 border-top: 2px solid $border;
                 @include atMedium {

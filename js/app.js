@@ -16,8 +16,8 @@ app.controller('articleListController', function($scope, $rootScope) {
     // when article item is clicked
     $scope.articleSelected = function($event, article) {
         $rootScope.$emit("ArticleSelected", { "articleId": article.id });
-        $(".tokens__list .tokens__item").removeClass("tokens__item-link--active");
-        $($event.target).parents(".tokens__item").addClass('tokens__item-link--active');
+        $(".tokens__list .tokens__item").removeClass("tokens__item-active");
+        $($event.target).parents(".tokens__item").addClass('tokens__item-active');
     };
 
     // load list of articles
@@ -46,6 +46,11 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
     $scope.currentCarouselImage = null;
 
     $rootScope.$on("ArticleSelected", function(event, data) {
+
+        // handle view change
+        $('.wrapper__sidebar').addClass('view-change');
+        $('.wrapper__main').addClass('view-change');
+        $('.header__arrow').css('visibility', 'visible');
 
         // remove images in current carousel
         emtpySlickCarousel();
@@ -116,6 +121,18 @@ app.controller('aboutController', function($scope, $sce) {
         function(err) {
             console.log("API error: ", err);
         });
+
+});
+
+// header
+app.controller('headerController', function($scope) {
+
+    $scope.backArrowClicked = function() {
+        // handle view change
+        $('.wrapper__sidebar').removeClass('view-change');
+        $('.wrapper__main').removeClass('view-change');
+        $('.header__arrow').css('visibility', 'hidden');
+    };
 
 });
 
