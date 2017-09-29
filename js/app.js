@@ -1,4 +1,5 @@
 var Prismic = require('prismic-javascript');
+var PrismicDom = require('prismic-dom');
 var apiEndpoint = "https://cryptopedia.cdn.prismic.io/api/v2";
 
 var app = angular.module("cryptopedia", []);
@@ -7,20 +8,22 @@ app.config(function() {
     initSlickCarousel();
 });
 
-// sidebar
-app.controller('sidebarController', function($scope, $rootScope) {
+// article list
+app.controller('articleListController', function($scope, $rootScope) {
 
     $scope.articles = [];
 
-    // when sidebar item is clicked
-    $scope.articleSelected = function(article) {
+    // when article item is clicked
+    $scope.articleSelected = function($event, article) {
         $rootScope.$emit("ArticleSelected", { "articleId": article.id });
+        $(".tokens__list .tokens__item").removeClass("tokens__item-link--active");
+        $($event.target).parents(".tokens__item").addClass('tokens__item-link--active');
     };
 
     // load list of articles
     Prismic.getApi(apiEndpoint, {})
         .then(function(api) {
-            return api.query("");
+            return api.query(Prismic.Predicates.at('document.type', 'token'));
         }).then(function(response) {
             console.log("articles loaded::", response);
             $scope.articles = response.results;
@@ -32,17 +35,17 @@ app.controller('sidebarController', function($scope, $rootScope) {
 });
 
 // article
-app.controller('articleController', function($scope, $rootScope) {
+app.controller('articleController', function($scope, $rootScope, $sce) {
 
     // article data
     $scope.bannerTitle = "";
     $scope.bannerText = "";
-    $scope.additionalContentTitle = "";
-    $scope.additionalContentText = "";
-    $scope.additionalContentParagraph = "";
+    $scope.sidebarContent = "";
+    $scope.socialLinks = [];
+    $scope.carousel = [];
+    $scope.currentCarouselImage = null;
 
     $rootScope.$on("ArticleSelected", function(event, data) {
-        console.log("Article Selected", data);
 
         // remove images in current carousel
         emtpySlickCarousel();
@@ -60,28 +63,59 @@ app.controller('articleController', function($scope, $rootScope) {
 
                 /* asign data to scope */
 
-                // main article
-                $scope.bannerTitle = article.heading[0].text;
-                $scope.bannerText = article.description[0].text;
-
-                // right side aditional content
-                var sidebarContent = article.sidebar_content;
-                $scope.additionalContentTitle = sidebarContent[0].text;
-                $scope.additionalContentText = sidebarContent[1].text;
-                $scope.additionalContentParagraph = "";
-
                 // add images to carousel
+                $scope.carousel = article.carousel;
+                $scope.currentCarouselImage = $scope.carousel[0];
                 article.carousel.forEach(function(image) {
                     addImageToCarousel(image)
                 });
 
+                $(".banner__slider").on('afterChange', function(event, slick, currentSlide, nextSlide){
+                    var currentSlideIndex = $(".banner__slider").slick('slickCurrentSlide');
+                    $scope.currentCarouselImage = $scope.carousel[currentSlideIndex];
+                    $scope.$apply();
+                });
+
+                // main article body
+                $scope.bannerTitle = article.heading[0].text;
+                $scope.bannerText = article.description[0].text;
+
+                // right sidebar content
+                $scope.sidebarContent = $sce.trustAsHtml(PrismicDOM.RichText.asHtml(article.sidebar_content, null));
+
+                // social links
+                $scope.socialLinks = article.social_links;
+                
                 $scope.$apply();
 
-            }, function(err) {
+            }, 
+            function(err) {
                 console.log("API error: ", err);
             });
 
     });
+
+});
+
+// about
+app.controller('aboutController', function($scope, $sce) {
+
+    $scope.aboutContent = "";
+
+    // load list of articles
+    Prismic.getApi(apiEndpoint, {})
+        .then(function(api) {
+            return api.query(Prismic.Predicates.at('document.type', 'about'));
+        }).then(function(response) {
+            console.log("about loaded::", response);
+
+            // get about popup content
+            $scope.aboutContent = $sce.trustAsHtml(PrismicDOM.RichText.asHtml(response.results[0].data.about, null));
+            $scope.$apply();
+        }, 
+        function(err) {
+            console.log("API error: ", err);
+        });
 
 });
 
@@ -108,6 +142,7 @@ function emtpySlickCarousel() {
         $(".banner__slider").slick('slickRemove', 0);
     }
 }
+
 
 $(document).ready(function () {
 

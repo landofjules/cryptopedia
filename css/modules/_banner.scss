@@ -18,10 +18,16 @@
         @include atSmall {
             margin-bottom: 1.25rem;
         }
+        &-title {
+            text-align: center;
+        }
+        &-description {
+            font-weight: lighter;
+            font-size: 14px;
+        }
         &-item {
             width: 100%;
-            height: auto;
-            max-height: 70vh;
+            height: 385px;
             &:focus {
                 outline: none;
             }

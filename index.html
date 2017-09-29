@@ -9,19 +9,23 @@
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.css" />
     <link type="text/css" rel="stylesheet" href="css/main.css">
+    <!-- Support for ng-cloak -->
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
 </head>
 
 <body ng-app="cryptopedia">
 
-    <div class="popup" data-popup="about">
+    <div class="popup" data-popup="about" ng-controller="aboutController">
         <div class="popup__close popup__backdrop"></div>
         <div class="popup__main">
             <div class="popup__header">
                 <h2 class="popup__title">About</h2>
             </div>
-            <div class="popup__content">
-                <p class="popup__text">The cryptocurrency encyclopedia is a project devoted to making a new and exciting feild more accessable to the public. We work hard to profile all established and developing cryptocurency projects and include links and recources for learning more.</p>
-            </div>
+            <div class="popup__content" ng-bind-html="aboutContent"></div>
         </div>
     </div>
 
@@ -35,27 +39,27 @@
                 <div class="popup__content-group">
                     <p class="popup__text popup__text--center popup__text--big">Something interesting we should know about?</p>
                 </div>
-                <form class="contact">
+                <form class="contact" method="POST" action="http://formspree.io/ahnilica@gmail.com">
                     <div class="contact__group">
                         <div class="contact__input-group">
                             <label class="contact__label">Name</label>
-                            <input type="text" class="contact__input">
+                            <input type="text" class="contact__input" name="name">
                         </div>
                         <div class="contact__input-group">
                             <label class="contact__label">Email</label>
-                            <input type="email" class="contact__input">
+                            <input type="email" class="contact__input" name="email">
                         </div>
                     </div>
                     <div class="contact__group">
                         <div class="contact__input-group">
                             <label class="contact__label">Message</label>
-                            <textarea class="contact__textarea"></textarea>
+                            <textarea class="contact__textarea" name="message"></textarea>
                         </div>
                     </div>
+                    <div class="popup__content-group">
+                        <button class="cta" type="submit">Submit</button>
+                    </div>
                 </form>
-                <div class="popup__content-group">
-                    <button class="cta">Submit</button>
-                </div>
             </div>
         </div>
     </div>
@@ -85,12 +89,12 @@
 
     <section class="wrapper">
 
-        <aside class="wrapper__sidebar" ng-controller="sidebarController">
+        <aside class="wrapper__sidebar" ng-controller="articleListController">
             <div class="tokens">
                 <h3 class="visible-xs tokens__title">Select a Token</h3>
-                <ul class="tokens__list">
+                <ul class="tokens__list" ng-cloak>
                     <li class="tokens__item" ng-repeat="article in articles">
-                        <a class="tokens__item-link" ng-click="articleSelected(article)">
+                        <a class="tokens__item-link" ng-click="articleSelected($event, article)">
                             <img ng-src="{{ article.data.token_image.url }}" alt="{{ article.data.token_image.alt }}" class="tokens__item-icon">
                             <h4 class="tokens__item-title">{{ article.data.name }}</h4>
                         </a>
@@ -101,33 +105,27 @@
 
         <div class="wrapper__main" ng-controller="articleController">
             <div class="article">
-                <div class="article__main">
+                <div class="article__main" ng-cloak>
                     <div class="banner">
                         <h1 class="text--title banner__title">{{ bannerTitle }}</h1>
+
                         <div class="banner__slider"></div>
+                        <div class="banner__slider-title">{{ currentCarouselImage.slide_heading }}</div>
+                        <div class="banner__slider-description">{{ currentCarouselImage.slide_caption }}</div>
+
                         <p class="text--paragraph banner__text">{{ bannerText }}</p>
                     </div>
                 </div>
                 <aside class="article__sidebar">
-                    <h2 class="text--title article__title">{{ additionalContentTitle }}</h2>
-                    <p class="text--paragraph article__text">{{ additionalContentText }}.</p>
-                    <img src="images/video-player.jpg" alt="Video" class="article__img article__video">
-                    <p class="text--paragraph">{{ additionalContentParagraph }}</p>
-                    <img src="images/people.jpg" alt="Image" class="article__img article__img--small">
                     <div class="article__social">
-                        <div class="article__social-item">
+                        <div class="article__social-item" ng-repeat="x in socialLinks">
                             <div class="article__social-item__icon-wrapper" style="background-color: #000000;">
-                                <i class="fa fa-github article__social-item__icon"></i>
+                                <img class="article__social-item__icon" ng-src="{{ x.social_icon.url }}"" style="width: {{ x.social_icon.dimensions.width }}; height: {{ x.social_icon.dimensions.height }};"></img>
                             </div>
-                            <a href="#" class="article__social-item__link">github.com/ripple</a>
-                        </div>
-                        <div class="article__social-item">
-                            <div class="article__social-item__icon-wrapper" style="background-color: #598DCA;">
-                                <i class="fa fa-twitter article__social-item__icon"></i>
-                            </div>
-                            <a href="#" class="article__social-item__link">@ripple_crypto</a>
+                            <a ng-href="{{ x.link.url }}" class="article__social-item__link">{{ x.display_text }}</a>
                         </div>
                     </div>
+                    <div ng-bind-html="sidebarContent"></div>
                 </aside>
             </div>
         </div>
