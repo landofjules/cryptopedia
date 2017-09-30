@@ -1,5 +1,5 @@
 .wrapper {
-    @media screen and (max-width: 425px) {
+    @media screen and (max-width: 768px) {
         width: 100%;
         height: 100%;
         overflow-x: hidden;
@@ -7,12 +7,14 @@
         position: relative;
     }
     &__sidebar {
-        @include atMedium {
+        @media screen and (min-width: 769px) {
             width: 20%;
             max-width: 180px;
             padding: 3.125rem 0.875rem;
+            display: inline-block;
+            vertical-align: top;
         }
-        @media screen and (max-width: 425px) {
+        @media screen and (max-width: 768px) {
             width: 100%;
             height: 100%;
             position: absolute;
@@ -24,24 +26,27 @@
             padding: 0 2.0833rem;
         }
         &.view-change {
-            @media screen and (max-width: 425px) {
+            @media screen and (max-width: 768px) {
                 -webkit-transform: translateX(-100%);
                 transform: translateX(-100%);
             }
         }
     }
     &__main {
-        //width: 100%;
-        @include atMedium {
+        @media screen and (min-width: 769px) {
             width: 80%;
             border-left: 2px solid $border;
             flex-grow: 1;
             padding: 1rem 0;
+            display: inline-block;
+        }
+        @media screen and (max-height: 922px) {
+            width: 75%;
         }
         @include atLarge {
             padding: 3.125rem 0;
         }
-        @media screen and (max-width: 425px) {
+        @media screen and (max-width: 768px) {
             width: 100%;
             height: 100%;
             position: absolute;
@@ -56,7 +61,7 @@
             transform: translateX(100%);
         }
         &.view-change {
-            @media screen and (max-width: 425px) {
+            @media screen and (max-width: 768px) {
                 -webkit-transform: translateX(0);
                 transform: translateX(0);
             }

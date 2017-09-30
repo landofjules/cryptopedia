@@ -57,7 +57,7 @@
         cursor: pointer;
         display: block;
         visibility: hidden;
-        @media screen and (min-width: 426px) {
+        @media screen and (min-width: 769px) {
             visibility: hidden !important;
         }
     }
