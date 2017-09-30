@@ -10,6 +10,7 @@
         @include atSmall {
             padding: 0;
         }
+        margin: 15px auto;
     }
     &__slider {
         position: relative;
@@ -17,16 +18,13 @@
         max-width: 800px;
         text-align: center;
         margin: auto;
-        margin-bottom: 1.667rem;
-        @include atSmall {
-            margin-bottom: 1.25rem;
-        }
         &-title {
             text-align: center;
         }
         &-description {
             font-weight: lighter;
             font-size: 14px;
+            text-align: center;
         }
         &-item {
             width: 100%;
@@ -76,7 +74,7 @@
         }
         .slick {
             &-dots {
-                display: flex !important;
+                display: flex;
                 align-items: center;
                 justify-content: center;
                 position: absolute;

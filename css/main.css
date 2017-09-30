@@ -119,6 +119,9 @@ button {
     @media screen and (min-width: 1200px) {
       .header__main:after {
         border-width: 67.25px 0 0 20px; } }
+    @media screen and (max-width: 1078px) {
+      .header__main:after {
+        display: none; } }
     @media screen and (min-width: 768px) {
       .header__main {
         padding: 0.5rem 0; } }
@@ -476,6 +479,12 @@ button {
       .tokens__title {
         font-size: 1.125rem;
         line-height: 1.3125rem; } }
+    @media screen and (max-width: 768px) {
+      .tokens__title {
+        display: block; } }
+    @media screen and (min-width: 769px) {
+      .tokens__title {
+        display: none; } }
   .tokens__item {
     cursor: pointer; }
     .tokens__item:hover {
@@ -632,7 +641,8 @@ button {
     .banner__title {
       padding: 0; } }
 .banner__text {
-  padding: 0 2.0833rem; }
+  padding: 0 2.0833rem;
+  margin: 15px auto; }
   @media screen and (min-width: 768px) {
     .banner__text {
       padding: 0; } }
@@ -641,16 +651,13 @@ button {
   width: 100%;
   max-width: 800px;
   text-align: center;
-  margin: auto;
-  margin-bottom: 1.667rem; }
-  @media screen and (min-width: 768px) {
-    .banner__slider {
-      margin-bottom: 1.25rem; } }
+  margin: auto; }
   .banner__slider-title {
     text-align: center; }
   .banner__slider-description {
     font-weight: lighter;
-    font-size: 14px; }
+    font-size: 14px;
+    text-align: center; }
   .banner__slider-item {
     width: 100%;
     height: auto; }
@@ -689,7 +696,7 @@ button {
     width: 1rem;
     height: auto; }
   .banner__slider .slick-dots {
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;

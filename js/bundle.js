@@ -7,6 +7,7 @@ var app = angular.module("cryptopedia", []);
 
 app.config(function() {
     initSlickCarousel();
+    $('.slick-dots').hide();
 });
 
 // article list
@@ -52,6 +53,7 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
         $('.wrapper__sidebar').addClass('view-change');
         $('.wrapper__main').addClass('view-change');
         $('.header__arrow').css('visibility', 'visible');
+        $('.slick-dots').show();
 
         // remove images in current carousel
         emtpySlickCarousel();

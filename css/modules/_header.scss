@@ -37,6 +37,9 @@
             @include atLarge {
                 border-width: 67.25px 0 0 20px;
             }
+            @media screen and (max-width: 1078px) {
+                display: none;
+            }
         }
         @include atSmall {
             padding: 0.5rem 0;
