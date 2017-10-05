@@ -422,7 +422,7 @@ body {
     .wrapper__sidebar {
       width: 20%;
       max-width: 180px;
-      padding: 3.125rem 0.875rem;
+      padding: 2.125rem 0.875rem;
       display: inline-block;
       vertical-align: top;
       height: calc(100vh - 67px); } }
@@ -448,14 +448,13 @@ body {
         width: 80%;
         border-left: 2px solid #F4F9F9;
         flex-grow: 1;
-        padding: 1rem 0;
         display: inline-block; } }
     @media screen and (max-height: 922px) {
       .wrapper__main {
         width: 75%; } }
     @media screen and (min-width: 1200px) {
       .wrapper__main {
-        padding: 3.125rem 0; } }
+        padding: 0.125rem 0; } }
     @media screen and (max-width: 768px) {
       .wrapper__main {
         width: 100%;
