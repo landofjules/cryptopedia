@@ -10,7 +10,7 @@
         @media screen and (min-width: 769px) {
             width: 20%;
             max-width: 180px;
-            padding: 3.125rem 0.875rem;
+            padding: 2.125rem 0.875rem;
             display: inline-block;
             vertical-align: top;
         }
@@ -37,14 +37,14 @@
             width: 80%;
             border-left: 2px solid $border;
             flex-grow: 1;
-            padding: 1rem 0;
+            //padding: 1rem 0;
             display: inline-block;
         }
         @media screen and (max-height: 922px) {
             width: 75%;
         }
         @include atLarge {
-            padding: 3.125rem 0;
+            padding: 0.125rem 0;
         }
         @media screen and (max-width: 768px) {
             width: 100%;
