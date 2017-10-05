@@ -56,10 +56,13 @@
     &__arrow {
         width: 1.8333rem;
         height: auto;
-        margin: 0 1.667rem;
         cursor: pointer;
         display: block;
-        visibility: hidden;
+        width: 0;
+        opacity: 0;
+
+        transition: width 0.3s linear, opacity 0.3s linear, margin 0.3s linear;
+
         @media screen and (min-width: 769px) {
             visibility: hidden !important;
         }
@@ -67,9 +70,9 @@
     &__title {
         font-family: $title;
         font-weight: 300;
-        font-size: 1.833rem;
+        font-size: 2.3rem;
         line-height: 2.1667rem;
-        margin-right: 5rem;
+        margin: 0 5rem 0 2rem;
         color: $logo;
         @media screen and (max-width: 340px) {
             font-size: 1.333rem;
