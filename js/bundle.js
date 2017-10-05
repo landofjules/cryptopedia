@@ -11,12 +11,13 @@ app.config(function() {
 });
 
 // article list
-app.controller('articleListController', function($scope, $rootScope) {
+app.controller('articleListController', function($scope, $rootScope, $window) {
 
     $scope.articles = [];
 
     // when article item is clicked
     $scope.articleSelected = function($event, article) {
+        console.log($window.scrollY);
         $rootScope.$emit("ArticleSelected", { "articleId": article.id });
         $(".tokens__list .tokens__item").removeClass("tokens__item-active");
         $($event.target).parents(".tokens__item").addClass('tokens__item-active');

@@ -1,7 +1,20 @@
 .article {
+
+    @media screen and (max-width: 1024px) {
+        height: calc(100vh - 67px);
+        overflow-y: scroll;
+    }
+
     &__main {
+
+        @media screen and (min-width: 1025px) {
+            height: calc(100vh - 67px);
+        }
+
+        overflow-y: scroll;
         padding: 0;
-        padding-top: 25px !important;
+        padding-top: 14px !important;
+
         @include atSmall {
             padding: 0 1.25rem;
         }
@@ -10,6 +23,12 @@
         }
     }
     &__sidebar {
+    
+        @media screen and (min-width: 1025px) {
+            height: calc(100vh - 67px);
+        }
+
+        overflow-y: scroll;
         padding-top: 25px !important;
         margin-top: 2rem;
         padding: 0 1.667rem 1.667rem 1.667rem;
