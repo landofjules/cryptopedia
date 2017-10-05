@@ -48,28 +48,32 @@
             <div class="popup__content popup__content--nopadding">
                 <div class="popup__content-group">
                     <p class="popup__text popup__text--center popup__text--big">Something interesting we should know about?</p>
+                
+                    <form id="contact-form" class="contact" method="POST" action="http://formspree.io/ahnilica@gmail.com">
+                        <div class="contact__group">
+                            <div class="contact__input-group">
+                                <label class="contact__label">Name</label>
+                                <input type="text" class="contact__input" name="name">
+                            </div>
+                            <div class="contact__input-group">
+                                <label class="contact__label">Email</label>
+                                <input type="email" class="contact__input" name="email">
+                            </div>
+                        </div>
+                        <div class="contact__group">
+                            <div class="contact__input-group">
+                                <label class="contact__label">Message</label>
+                                <textarea class="contact__textarea" name="message"></textarea>
+                            </div>
+                        </div>
+                        
+                    </form>
                 </div>
-                <form class="contact" method="POST" action="http://formspree.io/ahnilica@gmail.com">
-                    <div class="contact__group">
-                        <div class="contact__input-group">
-                            <label class="contact__label">Name</label>
-                            <input type="text" class="contact__input" name="name">
-                        </div>
-                        <div class="contact__input-group">
-                            <label class="contact__label">Email</label>
-                            <input type="email" class="contact__input" name="email">
-                        </div>
-                    </div>
-                    <div class="contact__group">
-                        <div class="contact__input-group">
-                            <label class="contact__label">Message</label>
-                            <textarea class="contact__textarea" name="message"></textarea>
-                        </div>
-                    </div>
-                    <div class="popup__content-group">
-                        <button class="cta" type="submit">Submit</button>
-                    </div>
-                </form>
+
+                <div class="popup__content-group">
+                    <button class="cta" form="contact-form" type="submit">Submit</button>
+                </div>
+
             </div>
         </div>
     </div>

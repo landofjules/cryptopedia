@@ -79,9 +79,11 @@
             padding: 0;
         }
         &-group {
-            padding: 1.667rem;
-            @include atSmall {
-                padding: 1.25rem;
+            p {
+                margin: 18px auto 10px auto;
+            }
+            button {
+                margin: 15px auto;
             }
         }
     }
