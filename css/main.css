@@ -132,6 +132,9 @@ button {
     @media screen and (min-width: 768px) {
       .header__logo {
         margin-right: 0.75rem; } }
+    @media screen and (max-width: 768px) {
+      .header__logo {
+        display: none !important; } }
   .header__arrow {
     width: 1.8333rem;
     height: auto;
@@ -142,7 +145,7 @@ button {
     transition: width 0.3s linear, opacity 0.3s linear, margin 0.3s linear; }
     @media screen and (min-width: 769px) {
       .header__arrow {
-        visibility: hidden !important; } }
+        display: none !important; } }
   .header__title {
     font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
     font-weight: 300;

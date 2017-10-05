@@ -144,6 +144,9 @@ app.controller('headerController', function($scope) {
         $('.header__arrow').css('width', '0');
         $('.header__arrow').css('opacity', '0.0');
         $('.header__arrow').css('margin', '0');
+
+        // remove active status
+        $(".tokens__list .tokens__item").removeClass("tokens__item-active");
     };
 
 });
