@@ -164,6 +164,11 @@ body {
     margin-right: 0.75rem;
   }
 }
+@media screen and (max-width: 768px) {
+  .header__logo {
+    display: none !important;
+  }
+}
 .header__arrow {
   width: 1.8333rem;
   height: auto;
@@ -175,7 +180,7 @@ body {
 }
 @media screen and (min-width: 769px) {
   .header__arrow {
-    visibility: hidden !important;
+    display: none !important;
   }
 }
 .header__title {

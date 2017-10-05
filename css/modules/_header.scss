@@ -52,6 +52,9 @@
         @include atSmall {
             margin-right: 0.75rem;
         }
+        @media screen and (max-width: 768px) {
+            display: none !important;
+        }
     }
     &__arrow {
         width: 1.8333rem;
@@ -64,7 +67,7 @@
         transition: width 0.3s linear, opacity 0.3s linear, margin 0.3s linear;
 
         @media screen and (min-width: 769px) {
-            visibility: hidden !important;
+            display: none !important;
         }
     }
     &__title {
