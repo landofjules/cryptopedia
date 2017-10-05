@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300");
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500");
 @import url("https://fonts.googleapis.com/css?family=Muli:300,600");
+@import url("https://fonts.googleapis.com/css?family=Iceland");
 html,
 body {
   overflow-x: hidden;
@@ -147,20 +148,12 @@ button {
       .header__arrow {
         display: none !important; } }
   .header__title {
-    font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
-    font-weight: 300;
-    font-size: 2.3rem;
+    font-family: iceland;
+    color: #fff;
+    font-size: 48px;
     line-height: 2.1667rem;
     margin: 0 5rem 0 2rem;
     color: #CEECEF; }
-    @media screen and (max-width: 340px) {
-      .header__title {
-        font-size: 1.333rem;
-        line-height: 1.5rem; } }
-    @media screen and (min-width: 768px) {
-      .header__title {
-        font-size: 30px;
-        line-height: 36px; } }
   .header__nav {
     position: relative; }
     @media screen and (min-width: 992px) {

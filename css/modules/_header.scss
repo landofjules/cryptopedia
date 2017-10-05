@@ -71,20 +71,14 @@
         }
     }
     &__title {
-        font-family: $title;
-        font-weight: 300;
-        font-size: 2.3rem;
+
+        font-family: iceland;
+        color: #fff;
+        font-size: 48px;
         line-height: 2.1667rem;
         margin: 0 5rem 0 2rem;
         color: $logo;
-        @media screen and (max-width: 340px) {
-            font-size: 1.333rem;
-            line-height: 1.5rem;
-        }
-        @include atSmall {
-            font-size: 30px;
-            line-height: 36px;
-        }
+
     }
     &__nav {
         position: relative;
