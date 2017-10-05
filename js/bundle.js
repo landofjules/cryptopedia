@@ -52,7 +52,13 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
         // handle view change
         $('.wrapper__sidebar').addClass('view-change');
         $('.wrapper__main').addClass('view-change');
-        $('.header__arrow').css('visibility', 'visible');
+
+        // show back arrow
+        $('.header__arrow').css('width', '22px');
+        $('.header__arrow').css('opacity', '1.0');
+        $('.header__arrow').css('margin', '0 0 0 1.66em');
+
+        // show slick carousel dots
         $('.slick-dots').show();
 
         // remove images in current carousel
@@ -134,7 +140,11 @@ app.controller('headerController', function($scope) {
         // handle view change
         $('.wrapper__sidebar').removeClass('view-change');
         $('.wrapper__main').removeClass('view-change');
-        $('.header__arrow').css('visibility', 'hidden');
+
+        // hide back arrow
+        $('.header__arrow').css('width', '0');
+        $('.header__arrow').css('opacity', '0.0');
+        $('.header__arrow').css('margin', '0');
     };
 
 });
