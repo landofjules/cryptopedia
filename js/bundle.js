@@ -43,7 +43,7 @@ app.controller('landingPageController', function($scope) {
             // set landing page text
             $scope.landingText = response.results[0].data.value_prop;
             $scope.$apply();
-            
+
         }, function(err) {
             console.log("API error: ", err);
         });
@@ -91,6 +91,9 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
     $scope.currentCarouselImage = null;
 
     $rootScope.$on("ArticleSelected", function(event, data) {
+
+        // scroll to top of article
+        $('.article').scrollTop(0)
 
         // handle view change
         $('.wrapper__sidebar').addClass('view-change');
