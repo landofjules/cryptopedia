@@ -10,8 +10,21 @@ app.config(function() {
     $('.slick-dots').hide();
 });
 
+app.run(function($rootScope, $location, $window){
+    // when back button is pressed, refresh page
+    $rootScope.$on('$locationChangeSuccess', function() {
+        $rootScope.actualLocation = $location.path();
+    });        
+
+    $rootScope.$watch(function () {return $location.path()}, function (newLocation, oldLocation) {
+        if($rootScope.actualLocation === newLocation) {
+            $window.location.reload();
+        }
+    });
+});
+
 // header
-app.controller('headerController', function($scope) {
+app.controller('headerController', function($scope, $location) {
 
     $scope.backArrowClicked = function() {
         // handle view change
@@ -25,10 +38,14 @@ app.controller('headerController', function($scope) {
 
         // remove active status
         $(".tokens__list .tokens__item").removeClass("tokens__item-active");
+
+        // update url path
+        $location.path("/");
     };
 
 });
 
+// landing page
 app.controller('landingPageController', function($scope) {
 
     $scope.landingText = "";
@@ -51,7 +68,7 @@ app.controller('landingPageController', function($scope) {
 });
 
 // article list
-app.controller('articleListController', function($scope, $rootScope, $window) {
+app.controller('articleListController', function($scope, $rootScope, $window, $location) {
 
     $scope.articles = [];
 
@@ -59,6 +76,9 @@ app.controller('articleListController', function($scope, $rootScope, $window) {
     $scope.articleSelected = function($event, article) {
         // emit article selected event
         $rootScope.$emit("ArticleSelected", { "articleId": article.id });
+
+        // update url path
+        $location.path("/" + article.data.name);
 
         // set active item
         $(".tokens__list .tokens__item").removeClass("tokens__item-active");
@@ -73,6 +93,38 @@ app.controller('articleListController', function($scope, $rootScope, $window) {
             console.log("articles loaded::", response);
             $scope.articles = response.results;
             $scope.$apply();
+
+            // if path has article name, navigate to article
+            if($location.path() !== "/") {
+                var articleNames = [];
+                response.results.forEach(function(article) {
+                    articleNames.push(article.data.name);
+                });
+
+                var pathArticleName = $location.path().replace("/", "");
+                if(articleNames.indexOf(pathArticleName) !== -1) {
+                    // path article name is valid
+                    var articleListItem = $("a .tokens__item-title:contains('" + pathArticleName + "')");
+                    if(articleListItem) {
+                        articleListItem.click();
+                    }
+                    else {
+                        // article list has not been rendered on page, wait for render to complete and select article
+                        var watcher = setTimeout(function() {
+                            articleListItem = $("a .tokens__item-title:contains('" + pathArticleName + "')");
+                            if(articleListItem) {
+                                clearInterval(watcher);
+                                articleListItem.click();
+                            }
+                        }, 100);
+                    }
+                }
+                else {
+                    // path article parameter is not valid, show valid link instead
+                    $location.path("/");
+                }
+            }
+
         }, function(err) {
             console.log("API error: ", err);
         });

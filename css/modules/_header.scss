@@ -71,14 +71,12 @@
         }
     }
     &__title {
-
-        font-family: iceland;
-        color: #fff;
-        font-size: 48px;
-        line-height: 2.1667rem;
-        margin: 0 5rem 0 2rem;
-        color: $logo;
-
+        background-image: url(../images/Logo.png);
+        background-size: 228px 50px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 250px;
+        height: 50px;
     }
     &__nav {
         position: relative;
