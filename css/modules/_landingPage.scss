@@ -1,0 +1,34 @@
+.landingPage {
+	
+	&__image {
+		width: 100%;
+		margin-top: 25px;
+	}
+
+	&__text {
+		color: #465e87;
+		font-size: 26px;
+		margin: 15px 25px 0 25px;
+		font-family: $title;
+	}
+
+	&__instructions {
+		width: 100%;
+		height: 200px;
+		background-image: url(../images/cta-arrow.svg);
+		background-size: 100px 100px;
+		background-position: left top;
+		background-repeat: no-repeat;
+		margin: 0 25px;
+	}
+
+	&__instructionText {
+		font-size: 14px;
+		color: #000;
+		position: relative;
+		left: 60px;
+    	top: 20px;
+    	font-family: $subtitle;
+	}
+
+}

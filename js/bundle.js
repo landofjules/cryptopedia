@@ -10,6 +10,46 @@ app.config(function() {
     $('.slick-dots').hide();
 });
 
+// header
+app.controller('headerController', function($scope) {
+
+    $scope.backArrowClicked = function() {
+        // handle view change
+        $('.wrapper__sidebar').removeClass('view-change');
+        $('.wrapper__main').removeClass('view-change');
+
+        // hide back arrow
+        $('.header__arrow').css('width', '0');
+        $('.header__arrow').css('opacity', '0.0');
+        $('.header__arrow').css('margin', '0');
+
+        // remove active status
+        $(".tokens__list .tokens__item").removeClass("tokens__item-active");
+    };
+
+});
+
+app.controller('landingPageController', function($scope) {
+
+    $scope.landingText = "";
+
+    // load landing page content
+    Prismic.getApi(apiEndpoint, {})
+        .then(function(api) {
+            return api.query(Prismic.Predicates.at('document.type', 'welcome_page'));
+        }).then(function(response) {
+            console.log("landing page content loaded::", response);
+
+            // set landing page text
+            $scope.landingText = response.results[0].data.value_prop;
+            $scope.$apply();
+            
+        }, function(err) {
+            console.log("API error: ", err);
+        });
+
+});
+
 // article list
 app.controller('articleListController', function($scope, $rootScope, $window) {
 
@@ -17,8 +57,10 @@ app.controller('articleListController', function($scope, $rootScope, $window) {
 
     // when article item is clicked
     $scope.articleSelected = function($event, article) {
-        console.log($window.scrollY);
+        // emit article selected event
         $rootScope.$emit("ArticleSelected", { "articleId": article.id });
+
+        // set active item
         $(".tokens__list .tokens__item").removeClass("tokens__item-active");
         $($event.target).parents(".tokens__item").addClass('tokens__item-active');
     };
@@ -58,6 +100,9 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
         $('.header__arrow').css('width', '22px');
         $('.header__arrow').css('opacity', '1.0');
         $('.header__arrow').css('margin', '0 0 0 1.66em');
+
+        // hide landing page 
+        $('.landingPage').hide();
 
         // show slick carousel dots
         $('.slick-dots').show();
@@ -131,25 +176,6 @@ app.controller('aboutController', function($scope, $sce) {
         function(err) {
             console.log("API error: ", err);
         });
-
-});
-
-// header
-app.controller('headerController', function($scope) {
-
-    $scope.backArrowClicked = function() {
-        // handle view change
-        $('.wrapper__sidebar').removeClass('view-change');
-        $('.wrapper__main').removeClass('view-change');
-
-        // hide back arrow
-        $('.header__arrow').css('width', '0');
-        $('.header__arrow').css('opacity', '0.0');
-        $('.header__arrow').css('margin', '0');
-
-        // remove active status
-        $(".tokens__list .tokens__item").removeClass("tokens__item-active");
-    };
 
 });
 

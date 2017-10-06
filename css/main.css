@@ -740,3 +740,28 @@ body {
         margin-left: 6px; }
       .banner__slider .slick-dots li button {
         display: none; }
+
+/*------------- 8. LANDING PAGE -------------*/
+.landingPage__image {
+  width: 100%;
+  margin-top: 25px; }
+.landingPage__text {
+  color: #465e87;
+  font-size: 26px;
+  margin: 15px 25px 0 25px;
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif; }
+.landingPage__instructions {
+  width: 100%;
+  height: 200px;
+  background-image: url(../images/cta-arrow.svg);
+  background-size: 100px 100px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  margin: 0 25px; }
+.landingPage__instructionText {
+  font-size: 14px;
+  color: #000;
+  position: relative;
+  left: 60px;
+  top: 20px;
+  font-family: "Muli", "Helvetica", "Arial", sans-serif; }

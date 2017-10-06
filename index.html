@@ -118,7 +118,19 @@
         </aside>
 
         <div class="wrapper__main" ng-controller="articleController">
+
             <div class="article">
+
+                <!-- Landing Page -->
+                <div class="landingPage col-lg-12 col-md-12" ng-controller="landingPageController">
+                    <img class="landingPage__image" src="images/MainImage.jpg"></img>
+                    <p class="landingPage__text" ng-cloak>{{ landingText }}</p>
+                    <div class="landingPage__instructions">
+                        <span class="landingPage__instructionText">Click a token to explore!</span>
+                    </div>
+                </div>
+
+                <!-- Article Page -->
                 <div class="article__main col-lg-8 col-md-12" ng-cloak>
                     <div class="banner">
                         <h1 class="text--title banner__title">{{ bannerTitle }}</h1>
@@ -130,6 +142,7 @@
                         <p class="text--paragraph banner__text">{{ bannerText }}</p>
                     </div>
                 </div>
+
                 <aside class="article__sidebar col-lg-4 col-md-12">
                     <div class="article__social" ng-cloak>
                         <div class="article__social-item" ng-repeat="x in socialLinks">
@@ -141,6 +154,7 @@
                     </div>
                     <div ng-bind-html="sidebarContent"></div>
                 </aside>
+
             </div>
         </div>
 
