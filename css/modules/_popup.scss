@@ -87,6 +87,26 @@
             }
         }
     }
+    &__terms {
+        padding: 1.667rem;
+        background-color: $white;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        @include atSmall {
+            padding: 1.25rem;
+        }
+        &--nopadding {
+            padding: 0;
+        }
+        &-group {
+            p {
+                margin: 18px auto 10px auto;
+            }
+            button {
+                margin: 15px auto;
+            }
+        }
+    }
     &__text {
         font-family: $main;
         font-weight: 400;

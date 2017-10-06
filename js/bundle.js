@@ -2,6 +2,7 @@
 var Prismic = require('prismic-javascript');
 var PrismicDom = require('prismic-dom');
 var apiEndpoint = "https://cryptopedia.cdn.prismic.io/api/v2";
+var value_prop = "";
 
 var app = angular.module("cryptopedia", []);
 
@@ -59,6 +60,7 @@ app.controller('landingPageController', function($scope) {
 
             // set landing page text
             $scope.landingText = response.results[0].data.value_prop;
+            value_prop = response.results[0].data.value_prop;
             $scope.$apply();
 
         }, function(err) {
@@ -71,6 +73,7 @@ app.controller('landingPageController', function($scope) {
 app.controller('articleListController', function($scope, $rootScope, $window, $location) {
 
     $scope.articles = [];
+    $scope.value_prop = "";
 
     // when article item is clicked
     $scope.articleSelected = function($event, article) {
@@ -84,6 +87,14 @@ app.controller('articleListController', function($scope, $rootScope, $window, $l
         $(".tokens__list .tokens__item").removeClass("tokens__item-active");
         $($event.target).parents(".tokens__item").addClass('tokens__item-active');
     };
+
+    var watcher = setInterval(function() {
+        if(value_prop !== "") {
+            clearInterval(watcher);
+            $scope.value_prop = value_prop;
+            $scope.$apply();
+        }
+    }, 200);
 
     // load list of articles
     Prismic.getApi(apiEndpoint, {})
@@ -216,6 +227,7 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
 app.controller('aboutController', function($scope, $sce) {
 
     $scope.aboutContent = "";
+    $scope.aboutTerms = "";
 
     // load list of articles
     Prismic.getApi(apiEndpoint, {})
@@ -226,6 +238,7 @@ app.controller('aboutController', function($scope, $sce) {
 
             // get about popup content
             $scope.aboutContent = $sce.trustAsHtml(PrismicDOM.RichText.asHtml(response.results[0].data.about, null));
+            $scope.aboutTerms = $sce.trustAsHtml(PrismicDOM.RichText.asHtml(response.results[0].data.terms, null));
             $scope.$apply();
         }, 
         function(err) {

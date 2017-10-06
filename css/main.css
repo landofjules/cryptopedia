@@ -332,6 +332,20 @@ button {
       margin: 18px auto 10px auto; }
     .popup__content-group button {
       margin: 15px auto; }
+  .popup__terms {
+    padding: 1.667rem;
+    background-color: #ffffff;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem; }
+    @media screen and (min-width: 768px) {
+      .popup__terms {
+        padding: 1.25rem; } }
+    .popup__terms--nopadding {
+      padding: 0; }
+    .popup__terms-group p {
+      margin: 18px auto 10px auto; }
+    .popup__terms-group button {
+      margin: 15px auto; }
   .popup__text {
     font-family: "Quicksand", "Helvetica", "Arial", sans-serif;
     font-weight: 400;
@@ -471,6 +485,15 @@ body {
   @media screen and (min-width: 768px) {
     .tokens {
       margin-bottom: 0; } }
+  .tokens__valueProp {
+    display: none; }
+    @media screen and (max-width: 768px) {
+      .tokens__valueProp {
+        display: block;
+        font-family: "Muli", "Helvetica", "Arial", sans-serif;
+        color: #465e87;
+        font-size: 26px;
+        margin-top: 15px; } }
   .tokens__title {
     text-align: center;
     font-family: "Muli", "Helvetica", "Arial", sans-serif;
@@ -668,11 +691,13 @@ body {
   text-align: center;
   margin: auto; }
   .banner__slider-title {
-    text-align: center; }
+    text-align: center;
+    font-family: "Quicksand", "Helvetica", "Arial", sans-serif; }
   .banner__slider-description {
     font-weight: lighter;
     font-size: 14px;
-    text-align: center; }
+    text-align: center;
+    font-family: "Muli", "Helvetica", "Arial", sans-serif; }
   .banner__slider-item {
     width: 100%;
     height: auto; }

@@ -20,11 +20,13 @@
         margin: auto;
         &-title {
             text-align: center;
+            font-family: $main;
         }
         &-description {
             font-weight: lighter;
             font-size: 14px;
             text-align: center;
+            font-family: $subtitle;
         }
         &-item {
             width: 100%;
