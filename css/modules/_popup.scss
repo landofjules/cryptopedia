@@ -88,6 +88,15 @@
         }
     }
     &__terms {
+
+    	position: absolute;
+	    bottom: 0;
+	    display: block;
+	    width: 100%;
+	    text-align: center;
+	    font-size: x-small;
+	    color: #aaa;
+
         padding: 1.667rem;
         background-color: $white;
         border-bottom-right-radius: 1rem;
