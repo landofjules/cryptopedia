@@ -700,7 +700,8 @@ body {
     font-family: "Muli", "Helvetica", "Arial", sans-serif; }
   .banner__slider-item {
     width: 100%;
-    height: auto; }
+    height: auto;
+    object-fit: cover; }
     .banner__slider-item:focus {
       outline: none; }
   .banner__slider-arrow-wrapper {
