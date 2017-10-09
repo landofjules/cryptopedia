@@ -39,6 +39,7 @@
             background-color: #EEF7FA;
         }
         &-active {
+            cursor: default;
             background-color: $brand !important;
             color: $white;
             .tokens__item-title {

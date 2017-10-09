@@ -76,6 +76,12 @@ app.controller('articleListController', function($scope, $rootScope, $window, $l
 
     // when article item is clicked
     $scope.articleSelected = function($event, article) {
+
+        // if active article is clicked, do not load article again
+        if($($event.currentTarget).parent().hasClass("tokens__item-active")) {
+            return;
+        }
+        
         // emit article selected event
         $rootScope.$emit("ArticleSelected", { "articleId": article.id });
 
@@ -193,20 +199,32 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
                 $scope.currentCarouselImage = $scope.carousel[0];
 
                 var minHeight = -1;
+                var minRenderHeight;
                 article.carousel.forEach(function(image) {
                     addImageToCarousel(image)
 
-                    imageHeight = image.slide_image.dimensions.height;
+                    // find original image size
+                    var imageHeight = image.slide_image.dimensions.height;
+                    var imageWidth = image.slide_image.dimensions.width;
+
+                    // find current image width
+                    var currentWidth = $(".banner").width();
+
+                    // solve for what height should be given current width
+                    var renderHeight = (currentWidth * imageHeight) / imageWidth;
+
                     if(minHeight === -1) {
                         minHeight = imageHeight;
+                        minRenderHeight = renderHeight;
                     }
                     else {
                         if(imageHeight < minHeight) {
                             minHeight = imageHeight;
+                            minRenderHeight = renderHeight;
                         }
                     }
                 });
-                $(".banner__slider img").css("max-height", minHeight + "px");
+                $(".banner__slider img").css("max-height", minRenderHeight + "px");
 
                 $(".banner__slider").on('afterChange', function(event, slick, currentSlide, nextSlide){
                     var currentSlideIndex = $(".banner__slider").slick('slickCurrentSlide');

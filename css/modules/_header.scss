@@ -77,6 +77,11 @@
         background-position: center center;
         width: 250px;
         height: 50px;
+
+        @media screen and (max-width: 350px) {
+            max-width: 90%;
+        }
+
     }
     &__nav {
         position: relative;

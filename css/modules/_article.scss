@@ -1,17 +1,17 @@
 .article {
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1200px) {
         height: calc(100vh - 67px);
         overflow-y: scroll;
     }
 
     &__main {
 
-        @media screen and (min-width: 1025px) {
+        @media screen and (min-width: 1201px) {
             height: calc(100vh - 67px);
+            overflow-y: scroll;
         }
 
-        overflow-y: scroll;
         padding: 0;
         padding-top: 14px !important;
 
@@ -28,7 +28,10 @@
             height: calc(100vh - 67px);
         }
 
-        overflow-y: scroll;
+        @media screen and (min-width: 1201px) {
+            overflow-y: scroll;
+        }
+
         padding-top: 25px !important;
         margin-top: 2rem;
         padding: 0 1.667rem 1.667rem 1.667rem;
@@ -109,16 +112,15 @@
     }
 }
 
-.article__sidebar {
+.article__sidebar, popup__content {
     
-
-
     @include atSmall {
         padding: 0 1.25rem;
     }
     @include atMedium {
         padding: 0 1.8125rem;
     }
+
     h1, h2, h3, h4, h5 {
         margin-top: 20px;
         text-align: left;
@@ -137,10 +139,18 @@
         }
         font-family: $main;
     }
+
+    @media screen and (max-width: 768px) {
+        p, li {
+            font-size: 18px;
+        }
+    } 
+
     iframe, img {
         width: 100%;
         max-width: 500px;
         margin: 20px 0;
     }
+
 }
 
