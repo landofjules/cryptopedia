@@ -191,15 +191,28 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
                 // add images to carousel
                 $scope.carousel = article.carousel;
                 $scope.currentCarouselImage = $scope.carousel[0];
+
+                var minHeight = -1;
                 article.carousel.forEach(function(image) {
                     addImageToCarousel(image)
+
+                    imageHeight = image.slide_image.dimensions.height;
+                    if(minHeight === -1) {
+                        minHeight = imageHeight;
+                    }
+                    else {
+                        if(imageHeight < minHeight) {
+                            minHeight = imageHeight;
+                        }
+                    }
                 });
+                $(".banner__slider img").css("max-height", minHeight + "px");
 
                 $(".banner__slider").on('afterChange', function(event, slick, currentSlide, nextSlide){
                     var currentSlideIndex = $(".banner__slider").slick('slickCurrentSlide');
                     $scope.currentCarouselImage = $scope.carousel[currentSlideIndex];
                     $scope.$apply();
-                });
+                });                
 
                 // main article body
                 $scope.bannerTitle = article.heading[0].text;

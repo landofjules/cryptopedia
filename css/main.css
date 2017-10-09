@@ -930,6 +930,7 @@ body {
 .banner__slider-item {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 .banner__slider-item:focus {
   outline: none;

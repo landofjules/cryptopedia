@@ -31,6 +31,7 @@
         &-item {
             width: 100%;
             height: auto;
+            object-fit: cover;
             &:focus {
                 outline: none;
             }
