@@ -44,11 +44,10 @@ body {
             width: 80%;
             border-left: 2px solid $border;
             flex-grow: 1;
-            //padding: 1rem 0;
             display: inline-block;
         }
-        @media screen and (max-height: 922px) {
-            width: 75%;
+        @media screen and (max-width: 920px) {
+            width: 79%;
         }
         @include atLarge {
             padding: 0.125rem 0;
@@ -62,8 +61,6 @@ body {
             will-change: transform;
             transition: -webkit-transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
             transition: transform 0.3s cubic-bezier(0.465, 0.183, 0.153, 0.946);
-            padding: 0 2.0833rem;
-
             -webkit-transform: translateX(100%);
             transform: translateX(100%);
         }

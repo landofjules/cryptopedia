@@ -16,15 +16,14 @@
         }
     }
     &--paragraph {
-        text-indent: 35px;
         font-family: $main;
         font-weight: 400;
         color: $black;
-        font-size: 1.167rem;
-        line-height: 1.41667rem;
-        @include atSmall {
-            font-size: 0.875rem;
-            line-height: 1.0625rem;
+        font-size: 16px;
+
+        @media screen and (max-width: 425px) {
+            font-size: 18px;
         }
+
     }
 }

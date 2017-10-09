@@ -4,9 +4,7 @@
     height: 100%;
     z-index: 9999999999;
     pointer-events: none;
-    @include atSmall {
-        font-size: 0.75rem;
-    }
+
     &--active {
         pointer-events: all;
         .popup {
@@ -72,6 +70,7 @@
         background-color: $white;
         border-bottom-right-radius: 1rem;
         border-bottom-left-radius: 1rem;
+        font-family: $main;
         @include atSmall {
             padding: 1.25rem;
         }
@@ -117,6 +116,7 @@
         }
     }
     &__text {
+        padding: 0 20px;
         font-family: $main;
         font-weight: 400;
         font-size: 1.1667rem;
