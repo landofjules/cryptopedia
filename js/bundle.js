@@ -8,6 +8,8 @@ var app = angular.module("cryptopedia", []);
 
 app.config(function() {
     initSlickCarousel();
+
+    // hide carousel dots
     $('.slick-dots').hide();
 });
 
@@ -56,8 +58,6 @@ app.controller('landingPageController', function($scope) {
         .then(function(api) {
             return api.query(Prismic.Predicates.at('document.type', 'welcome_page'));
         }).then(function(response) {
-            console.log("landing page content loaded::", response);
-
             // set landing page text
             $scope.landingText = response.results[0].data.value_prop;
             value_prop = response.results[0].data.value_prop;
@@ -107,7 +107,6 @@ app.controller('articleListController', function($scope, $rootScope, $window, $l
         .then(function(api) {
             return api.query(Prismic.Predicates.at('document.type', 'token'));
         }).then(function(response) {
-            console.log("articles loaded::", response);
             $scope.articles = response.results;
             $scope.$apply();
 
@@ -189,8 +188,6 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
                     Prismic.Predicates.at('document.id', data.articleId)
                 );
             }).then(function(response) {
-                console.log("article loaded: ", response);
-
                 var article = response.results[0].data;
 
                 /* asign data to scope */
@@ -201,6 +198,7 @@ app.controller('articleController', function($scope, $rootScope, $sce) {
 
                 var minHeight = -1;
                 var minRenderHeight;
+                var maxRenderedWidth
                 article.carousel.forEach(function(image) {
                     addImageToCarousel(image)
 
@@ -265,8 +263,6 @@ app.controller('aboutController', function($scope, $sce) {
         .then(function(api) {
             return api.query(Prismic.Predicates.at('document.type', 'about'));
         }).then(function(response) {
-            console.log("about loaded::", response);
-
             // get about popup content
             $scope.aboutContent = $sce.trustAsHtml(PrismicDOM.RichText.asHtml(response.results[0].data.about, null));
             $scope.aboutTerms = $sce.trustAsHtml(PrismicDOM.RichText.asHtml(response.results[0].data.terms, null));
