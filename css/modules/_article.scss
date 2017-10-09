@@ -110,17 +110,20 @@
 }
 
 .article__sidebar {
+    
+
+
     @include atSmall {
         padding: 0 1.25rem;
     }
     @include atMedium {
-        padding: 0 2.8125rem;
+        padding: 0 1.8125rem;
     }
     h1, h2, h3, h4, h5 {
         margin-top: 20px;
-        text-align: center;
+        text-align: left;
         margin-bottom: 15px;
-        font-family:title;
+        font-family:$title;
         color: $accent;
     }
     p {
@@ -132,7 +135,7 @@
             text-align: center;
             margin: 20px 0;
         }
-        font-family
+        font-family: $main;
     }
     iframe, img {
         width: 100%;

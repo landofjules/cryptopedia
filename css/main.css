@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300");
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500");
 @import url("https://fonts.googleapis.com/css?family=Muli:300,600");
-@import url("https://fonts.googleapis.com/css?family=Iceland");
 html,
 body {
   overflow-x: hidden;
@@ -96,6 +95,7 @@ body {
     6. TOKENS
     7. ARTICLE
     8. BANNER
+    9. LANDING PAGE
 
 */
 /*------------- 1. HEADER -------------*/
@@ -842,7 +842,7 @@ body {
   }
 }
 .article__social-item__link {
-  font-family: "Quicksand", "Helvetica", "Arial", sans-serif;
+  font-family: "Muli", "Helvetica", "Arial", sans-serif;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.1667rem;
@@ -858,9 +858,6 @@ body {
   }
 }
 
-.article__sidebar {
-  text-align: center;
-}
 @media screen and (min-width: 768px) {
   .article__sidebar {
     padding: 0 1.25rem;
@@ -868,18 +865,21 @@ body {
 }
 @media screen and (min-width: 992px) {
   .article__sidebar {
-    padding: 0 2.8125rem;
+    padding: 0 1.8125rem;
   }
 }
 .article__sidebar h1, .article__sidebar h2, .article__sidebar h3, .article__sidebar h4, .article__sidebar h5 {
   margin-top: 20px;
-  text-align: center;
+  text-align: left;
   margin-bottom: 15px;
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
+  color: #5486B4;
 }
 .article__sidebar p {
   text-indent: 35px;
   margin-bottom: 15px;
   text-align: left;
+  font-family: "Quicksand", "Helvetica", "Arial", sans-serif;
 }
 .article__sidebar p.block-img {
   text-indent: 0px;
@@ -1015,7 +1015,7 @@ body {
   display: none;
 }
 
-/*------------- 8. LANDING PAGE -------------*/
+/*------------- 9. LANDING PAGE -------------*/
 .landingPage__image {
   width: 100%;
   margin-top: 25px;
