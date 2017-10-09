@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300");
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500");
 @import url("https://fonts.googleapis.com/css?family=Muli:300,600");
-@import url("https://fonts.googleapis.com/css?family=Iceland");
 html,
 body {
   overflow-x: hidden;
@@ -333,6 +332,13 @@ button {
     .popup__content-group button {
       margin: 15px auto; }
   .popup__terms {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: x-small;
+    color: #aaa;
     padding: 1.667rem;
     background-color: #ffffff;
     border-bottom-right-radius: 1rem;
@@ -635,7 +641,7 @@ body {
       .article__social-item__icon {
         font-size: 1rem; } }
   .article__social-item__link {
-    font-family: "Quicksand", "Helvetica", "Arial", sans-serif;
+    font-family: "Muli", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.1667rem; }
@@ -647,30 +653,31 @@ body {
         font-size: 0.75rem;
         line-height: 0.875rem; } }
 
-.article__sidebar {
-  text-align: center; }
-  @media screen and (min-width: 768px) {
-    .article__sidebar {
-      padding: 0 1.25rem; } }
-  @media screen and (min-width: 992px) {
-    .article__sidebar {
-      padding: 0 2.8125rem; } }
-  .article__sidebar h1, .article__sidebar h2, .article__sidebar h3, .article__sidebar h4, .article__sidebar h5 {
-    margin-top: 20px;
+@media screen and (min-width: 768px) {
+  .article__sidebar {
+    padding: 0 1.25rem; } }
+@media screen and (min-width: 992px) {
+  .article__sidebar {
+    padding: 0 2.8125rem; } }
+.article__sidebar h1, .article__sidebar h2, .article__sidebar h3, .article__sidebar h4, .article__sidebar h5 {
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: title;
+  color: #5486B4; }
+.article__sidebar p {
+  text-indent: 35px;
+  margin-bottom: 15px;
+  text-align: left;
+  font-family: "Quicksand", "Helvetica", "Arial", sans-serif; }
+  .article__sidebar p.block-img {
+    text-indent: 0px;
     text-align: center;
-    margin-bottom: 15px; }
-  .article__sidebar p {
-    text-indent: 35px;
-    margin-bottom: 15px;
-    text-align: left; }
-    .article__sidebar p.block-img {
-      text-indent: 0px;
-      text-align: center;
-      margin: 20px 0; }
-  .article__sidebar iframe, .article__sidebar img {
-    width: 100%;
-    max-width: 500px;
     margin: 20px 0; }
+.article__sidebar iframe, .article__sidebar img {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0; }
 
 /*------------- 8. BANNER -------------*/
 .banner__title {
