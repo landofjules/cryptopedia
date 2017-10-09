@@ -112,15 +112,17 @@
     }
 }
 
-.article__sidebar, popup__content {
-    
+.article__sidebar {
     @include atSmall {
         padding: 0 1.25rem;
     }
     @include atMedium {
         padding: 0 1.8125rem;
     }
+}
 
+.article__sidebar, .popup__content {
+    
     h1, h2, h3, h4, h5 {
         margin-top: 20px;
         text-align: left;
@@ -129,7 +131,6 @@
         color: $accent;
     }
     p {
-        text-indent: 35px;
         margin-bottom: 15px;
         text-align: left;
         &.block-img {
